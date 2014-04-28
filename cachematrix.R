@@ -10,10 +10,10 @@ makeCacheMatrix <- function(x = matrix()) {
                 z <<- NULL
         }
         get <- function() x
-        matinverse <- function(inverse) z <<- inverse
+        invertmatrix <- function(inverse) z <<- inverse
         getinversematrix <- function() z
         list(set= set, get = get,
-             matinverse = matinverse,
+             invertmatrix = invertmatrix,
              getinversematrix = getinversematrix)
 
 }
@@ -31,6 +31,6 @@ cacheSolve <- function(x, ...) {
         }
         data <- x$get()
         z <- solve(data, ...)
-        x$matinverse(k)
+        x$invertmatrix(k)
         z
 }
